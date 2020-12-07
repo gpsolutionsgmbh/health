@@ -1,24 +1,122 @@
-# README
+# Assumptions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Food recorded only once per day and can be updated
+- Activities recorded once per day and can be updated
 
-Things you may want to cover:
+# Create User
+```
+POST /users
 
-* Ruby version
+{
+  "user": {
+    "username": "test"
+    "height": 180,
+    "weight": 90
+  }
+}
+```
 
-* System dependencies
+# Update User
+```
+PUT /users/:username
 
-* Configuration
+{
+  "user": {
+    "height": 180,
+    "weight": 90
+  }
+}
+```
 
-* Database creation
+# Save Food
+```
+POST /users/:username/foods
+{
+  "foods": [
+    {
+      "nutrion": "c",
+      "amount": 5
+    },
+    {
+      "nutrion": "d3",
+      "amount": 7
+    },
+    {
+      "nutrion": "iron",
+      "amount": 4
+    }
+  ],
+  "date": "2020-12-06"
+}
+```
 
-* Database initialization
+# Update Food
+```
+PUT /users/:username/foods
+{
+  "foods": [
+    {
+      "nutrion": "c",
+      "amount": 5
+    },
+    {
+      "nutrion": "d3",
+      "amount": 7
+    },
+    {
+      "nutrion": "iron",
+      "amount": 4
+    }
+  ],
+  "date": "2020-12-06"
+}
+```
 
-* How to run the test suite
+# Save Activities
+```
+POST /users/:username/activities
+{
+  "activities": [
+    {
+      "nutrion": "c",
+      "amount": 1
+    },
+    {
+      "nutrion": "d3",
+      "amount": 2
+    },
+    {
+      "nutrion": "iron",
+      "amount": 3
+    }
+  ],
+  "date": "2020-12-06"
+}
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+# Update Activities
+```
+PUT /users/:username/activities
+{
+  "activities": [
+    {
+      "nutrion": "c",
+      "amount": 1
+    },
+    {
+      "nutrion": "d3",
+      "amount": 2
+    },
+    {
+      "nutrion": "iron",
+      "amount": 3
+    }
+  ],
+  "date": "2020-12-06"
+}
+```
 
-* Deployment instructions
-
-* ...
+# Get Recipe
+```
+GET /users/:username/recipes?date=2020-12-06
+```
